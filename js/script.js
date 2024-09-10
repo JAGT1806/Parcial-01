@@ -1,5 +1,6 @@
-document.getElementById('testDriveForm').addEventListener('submit', function(event) {
-    event.preventDefault();
+
+
+function validar() {
 
     // Obtener valores de los campos
     const nombres = document.getElementById('nombres').value.trim();
@@ -7,6 +8,10 @@ document.getElementById('testDriveForm').addEventListener('submit', function(eve
     const email = document.getElementById('email').value.trim();
     const telefono = document.getElementById('telefono').value.trim();
     const estrato = document.getElementById('estrato').value.trim();
+    const fechaNacimiento = document.getElementById('fechaNacimiento').value.trim();
+    const grupoSanguineo = document.getElementById('grupoSanguineo').value.trim();
+    const genero = document.querySelector('input[name="genero"]:checked');
+    const actividadesFavoritas = document.querySelectorAll('input[name="actividadesFavoritas"]:checked');
     
     // Expresiones regulares
     const regexNombresApellidos = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/;
@@ -43,4 +48,9 @@ document.getElementById('testDriveForm').addEventListener('submit', function(eve
     // Si todas las validaciones son correctas, puedes enviar el formulario
     alert('Formulario enviado exitosamente.');
     this.submit();
-});
+
+    datos = ["Nombres: " + nombres, "Apellidos: " + apellidos, "Email: " + email, "Teléfono: " + telefono, "Estrato: " + estrato, "Fecha Nacimiento: " + fechaNacimiento, "Grupo Sanguineo: " + grupoSanguineo, "Genero: " + genero, "Actividades Favoritas: " + actividadesFavoritas];
+    
+
+    console.table(datos);
+}
